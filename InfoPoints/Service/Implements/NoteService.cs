@@ -6,7 +6,7 @@ using Service.Interfaces;
 
 namespace Service.Implements
 {
-    class NoteService : INoteService
+    public class NoteService : INoteService
     {
         private readonly INoteRepo _noteRepo;
 
@@ -26,7 +26,7 @@ namespace Service.Implements
         {
             var response = await _noteRepo.GetAllAsync();
 
-            return response;
+            return response ?? new List<Note>();
         }
 
         public async Task<bool> DeleteNoteAsync(int id)

@@ -6,7 +6,7 @@ using Service.Interfaces;
 
 namespace Service.Implements
 {
-    class PointService : IPointService
+    public class PointService : IPointService
     {
         private readonly IPointRepo _pointRepo;
 
@@ -26,7 +26,7 @@ namespace Service.Implements
         {
             var response = await _pointRepo.GetAllAsync();
 
-            return response;
+            return response ?? new List<Point>();
         }
 
         public async Task<bool> DeletePointAsync(int id)
