@@ -23,4 +23,13 @@ addNewPoint.addEventListener('click', () => {
     else {
         point.CreatePoint();
     }
+
+    CleanDataPoint();
 })
+
+const CleanDataPoint = () => {
+    pointX_Axis.value = '';
+    pointY_Axis.value = '';
+    pointRadius.value = '';
+    pointColor.value = '';
+}

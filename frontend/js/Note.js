@@ -38,10 +38,10 @@ addNewNote.addEventListener("click", () => {
         note.CreateNote();
     }
 
-    CleanData();
+    CleanDataNote();
 });
 
-const CleanData = () => {
+const CleanDataNote = () => {
     noteComment.value = '';
     noteColor.value = '';
     notePointId.value = '';
