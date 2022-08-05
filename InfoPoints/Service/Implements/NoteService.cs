@@ -42,5 +42,12 @@ namespace Service.Implements
 
             return response;
         }
+
+        public async Task<IEnumerable<Note>> GetNotesPointId(int pointId)
+        {
+            var response = await _noteRepo.GetNotesPointIdAsync(pointId);
+
+            return response;
+        }
     }
 }
