@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./node_modules/konva/konva.js"></script>
+  </head>
+  <body>
+    <div class="notes">
+      <input type="text" placeholder="Some comment" class="new-note-comment" />
+      <input type="text" placeholder="Color of background" class="new-note-color" />
+      <input type="number" placeholder="Point Id" class="new-note-pointId" />
+
+      <button class="notes__add">Create note</button>
+    </div>
+
+    <div class="points">
+      <input type="number" placeholder="x Axis" class="new-point-x" />
+      <input type="number" placeholder="y Axis" class="new-point-y" />
+      <input type="number" placeholder="Radius" class="new-point-radius" />
+      <input type="text" placeholder="Color of point" class="new-point-color" />
+
+      <button class="point__add">Create point</button>
+
+      <div class="draw_points">
+        <button class="points__draw">Draw points</button>
+      </div>
+    </div>
+
+    <div id="konva-holder"></div>
+
+    <script src="js/Variables.js"></script>
+    <script src="js/NoteClass.js"></script>
+    <script src="js/PointClass.js"></script>
+    <script src="js/Note.js"></script>
+    <script src="js/Point.js"></script>
+  </body>
+</html>

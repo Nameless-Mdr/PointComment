@@ -1,6 +1,7 @@
 ﻿using DAL.Interfaces;
 using Domain.Models;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +18,7 @@ namespace DAL.Repositories
 
         public async Task<bool> DeleteAsync(int id)
         {
-            var note = await _db.Points.FirstOrDefaultAsync(x => x.Id == id);
+            var note = await _db.Notes.FirstOrDefaultAsync(x => x.Id == id);
 
             if (note == null) return false;
 
@@ -45,6 +46,13 @@ namespace DAL.Repositories
             _db.Update(entity);
 
             return await _db.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<Note>> GetNotesPointIdAsync(int pointId)
+        {
+            var notes = await GetAllAsync();
+
+            return notes.Where(note => note.PointId == pointId);
         }
     }
 }

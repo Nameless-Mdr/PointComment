@@ -13,5 +13,7 @@ namespace Service.Interfaces
         Task<bool> DeleteNoteAsync(int id);
 
         Task<int> UpdateNoteAsync(Note entity);
+
+        Task<IEnumerable<Note>> GetNotesPointId(int pointId);
     }
 }

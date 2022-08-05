@@ -26,14 +26,14 @@ namespace InfoPoints
         {
             var connection = Configuration.GetConnectionString("PostgresConnection");
 
-            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connection, settings => settings.MigrationsAssembly("Delivery")));
+            services.AddDbContext<AppDbContext>(options => options.UseNpgsql(connection, settings => settings.MigrationsAssembly("InfoPoints")));
 
             services.AddControllers();
 
             // Enable CORS
             services.AddCors(c =>
             {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000"));
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
             });
 
             //JSON Serializer
@@ -54,7 +54,7 @@ namespace InfoPoints
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             // Enable CORS
-            app.UseCors(options => options.AllowAnyMethod().AllowAnyHeader().WithOrigins("http://localhost:3000"));
+            app.UseCors(options => options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
 
             if (env.IsDevelopment())
             {

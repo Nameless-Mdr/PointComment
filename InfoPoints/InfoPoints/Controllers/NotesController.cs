@@ -52,5 +52,14 @@ namespace InfoPoints.Controllers
 
             return response;
         }
+
+        [HttpGet]
+        [Route("getNotesPointId")]
+        public async Task<IEnumerable<Note>> GetNotesPointIdAsync(int pointId)
+        {
+            var response = await _noteService.GetNotesPointId(pointId);
+
+            return response;
+        }
     }
 }
